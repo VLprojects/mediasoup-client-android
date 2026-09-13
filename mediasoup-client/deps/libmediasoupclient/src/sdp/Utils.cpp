@@ -70,14 +70,14 @@ namespace mediasoupclient
 
 							// clang-format off
 							json codec =
-									{
-											{ "kind",                 kind           },
-											{ "mimeType",             mimeType       },
-											{ "preferredPayloadType", rtp["payload"] },
-											{ "clockRate",            rtp["rate"]    },
-											{ "parameters",           json::object() },
-											{ "rtcpFeedback",         json::array()  }
-									};
+							{
+								{ "kind",                 kind           },
+								{ "mimeType",             mimeType       },
+								{ "preferredPayloadType", rtp["payload"] },
+								{ "clockRate",            rtp["rate"]    },
+								{ "parameters",           json::object() },
+								{ "rtcpFeedback",         json::array()  }
+							};
 							// clang-format on
 
 							if (kind == "audio")
@@ -147,9 +147,9 @@ namespace mediasoupclient
 
 							// clang-format off
 							json feedback =
-									{
-											{"type", fb["type"]}
-									};
+							{
+								{"type", fb["type"]}
+							};
 							// clang-format on
 
 							auto jsonSubtypeIt = fb.find("subtype");
@@ -172,11 +172,11 @@ namespace mediasoupclient
 						{
 							// clang-format off
 							json headerExtension =
-									{
-											{ "kind",        kind },
-											{ "uri",         ext["uri"] },
-											{ "preferredId", ext["value"] }
-									};
+							{
+									{ "kind",        kind },
+									{ "uri",         ext["uri"] },
+									{ "preferredId", ext["value"] }
+							};
 							// clang-format on
 
 							headerExtensions.push_back(headerExtension);
@@ -186,11 +186,11 @@ namespace mediasoupclient
 
 				// clang-format off
 				json rtpCapabilities =
-						{
-								{ "headerExtensions", headerExtensions },
-								{ "codecs",           json::array() },
-								{ "fecMechanisms",    json::array() } // TODO
-						};
+				{
+					{ "headerExtensions", headerExtensions },
+					{ "codecs",           json::array() },
+					{ "fecMechanisms",    json::array() } // TODO
+				};
 				// clang-format on
 
 				for (auto& kv : codecsMap)
